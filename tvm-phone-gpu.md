@@ -4,6 +4,7 @@ tvm arm gpu opencl
 2019.4.27
 
 # TVM:手机[gpu|cpu]上运行Tensorflow模型
+[TOC]
 ## 目的
 描述在手机上运行tvm的过程,分gpu/cpu两种情况.
 手机上运行tvm的话，考虑到要支持android和ios两个平台，用c++来提高可移植性.
