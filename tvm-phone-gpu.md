@@ -3,109 +3,111 @@ tvm arm gpu opencl
 
 2019.4.27
 
-# TVM:ÊÖ»ú[gpu|cpu]ÉÏÔËĞĞTensorflowÄ£ĞÍ
-## Ä¿µÄ
-ÃèÊöÔÚÊÖ»úÉÏÔËĞĞtvmµÄ¹ı³Ì,·Ögpu/cpuÁ½ÖÖÇé¿ö.
-ÊÖ»úÉÏÔËĞĞtvmµÄ»°£¬¿¼ÂÇµ½ÒªÖ§³ÖandroidºÍiosÁ½¸öÆ½Ì¨£¬ÓÃc++À´Ìá¸ß¿ÉÒÆÖ²ĞÔ.
+# TVM:æ‰‹æœº[gpu|cpu]ä¸Šè¿è¡ŒTensorflowæ¨¡å‹
+## ç›®çš„
+æè¿°åœ¨æ‰‹æœºä¸Šè¿è¡Œtvmçš„è¿‡ç¨‹,åˆ†gpu/cpuä¸¤ç§æƒ…å†µ.
+æ‰‹æœºä¸Šè¿è¡Œtvmçš„è¯ï¼Œè€ƒè™‘åˆ°è¦æ”¯æŒandroidå’Œiosä¸¤ä¸ªå¹³å°ï¼Œç”¨c++æ¥æé«˜å¯ç§»æ¤æ€§.
 
-## ÊÖ»úcpuÔËĞĞTVM
-ÓÃc++µ÷ÓÃtvm£¬²Î¿¼±¾ÎÄÄ©Î²µÄ [²Î¿¼2](#ref2) ºÍ [²Î¿¼3](#ref3) ¾Í¿ÉÒÔÁË.
+## æ‰‹æœºcpuè¿è¡ŒTVM
+ç”¨c++è°ƒç”¨tvmï¼Œå‚è€ƒæœ¬æ–‡æœ«å°¾çš„ [å‚è€ƒ2](#ref2) å’Œ [å‚è€ƒ3](#ref3) å°±å¯ä»¥äº†.
 
-## ÊÖ»úgpuÔËĞĞTVM
-### ²âÊÔÒ»ÏÂÄãµÄÊÖ»úÊÇ·ñÖ§³Ögpu
-ÔÚÊÖ»úÉÏ°²×° [²Î¿¼5(Opencl-Z)](#ref5)£¬ÄÜ²é¿´ÊÖ»úgpuĞÅÏ¢¡£
-»ªÎªmate7¸ù±¾²»Ö§³ÖgpuÔËËã.
-»ªÎªÂóÃ¢5¿´ÆğÀ´Ö§³ÖgpuÔËËã£¬µ«tvm»áÔËĞĞ³ö´í.
-»ªÎªMate10/P10/Ğ¡Ã×6¾Í¿ÉÒÔÔËĞĞtvm, »ªÎªÂóÃ¢5/Ğ¡Ã×5¾Í²»ĞĞ¡£
+## æ‰‹æœºgpuè¿è¡ŒTVM
+### æµ‹è¯•ä¸€ä¸‹ä½ çš„æ‰‹æœºæ˜¯å¦æ”¯æŒgpu
+åœ¨æ‰‹æœºä¸Šå®‰è£… [å‚è€ƒ5(Opencl-Z)](#ref5)ï¼Œèƒ½æŸ¥çœ‹æ‰‹æœºgpuä¿¡æ¯ã€‚
+åä¸ºmate7æ ¹æœ¬ä¸æ”¯æŒgpuè¿ç®—.
+åä¸ºéº¦èŠ’5çœ‹èµ·æ¥æ”¯æŒgpuè¿ç®—ï¼Œä½†tvmä¼šè¿è¡Œå‡ºé”™.
+åä¸ºMate10/P10/å°ç±³6å°±å¯ä»¥è¿è¡Œtvm, åä¸ºéº¦èŠ’5/å°ç±³5å°±ä¸è¡Œã€‚
 
-### ×¼±¸TVM C++´úÂë
-ÒªÔÚÊÖ»úÉÏÔËĞĞgpu£¬ĞèÒª²Î¿¼±¾ÎÄÄ©Î²µÄ[²Î¿¼4](#ref4)²ÅĞĞ.
-[²Î¿¼4](#ref4)ºÍ[²Î¿¼2](#ref2)/[3](#ref3)µÄÇø±ğÊÇ£º
-`device_type´ÓkDLCPU±ä³ÉÁËkDLGPU.`
+### å‡†å¤‡TVM C++ä»£ç 
+è¦åœ¨æ‰‹æœºä¸Šè¿è¡Œgpuï¼Œéœ€è¦å‚è€ƒæœ¬æ–‡æœ«å°¾çš„[å‚è€ƒ4](#ref4)æ‰è¡Œ.
+[å‚è€ƒ4](#ref4)å’Œ[å‚è€ƒ2](#ref2)/[3](#ref3)çš„åŒºåˆ«æ˜¯ï¼š
+`device_typeä»kDLCPUå˜æˆäº†kDLGPU.`
 
-ÎªÁËÔÚÊÖ»úÉÏÔËĞĞgpu£¬[²Î¿¼4](#ref4)ÄÚµÄ kDLGPU£¬ÒªĞŞ¸Ä³É kDLOpenCL;
+ä¸ºäº†åœ¨æ‰‹æœºä¸Šè¿è¡Œgpuï¼Œ[å‚è€ƒ4](#ref4)å†…çš„ kDLGPUï¼Œè¦ä¿®æ”¹æˆ kDLOpenCL;
 
-Èç¹ûÖ±½Ó²Ù×÷ÁËgpuÊı¾İ£¬opencl»á±¨¸æ´íÎó:
+å¦‚æœç›´æ¥æ“ä½œäº†gpuæ•°æ®ï¼Œopenclä¼šæŠ¥å‘Šé”™è¯¯:
 `OpenCL Error, code=-38: CL_INVALID_MEM_OBJECT`
 
-[²Î¿¼4](#ref4)ºÍ[²Î¿¼2](#ref2)/[3](#ref3)»¹ÓĞÒ»¸öÖØÒªµÄÇø±ğ£¬¾ÍÊÇ¶ÔÊäÈë/Êä³öÊı¾İµÄ´¦Àí¡£
-ÎªÁË°ÑÊı¾İ¸´ÖÆ½øgpu,±ØĞëµ÷ÓÃ `TVMArrayCopyFromBytes`¡£
-ÎªÁË°ÑÊı¾İ´Ógpu¸´ÖÆ³öÀ´£¬±ØĞëµ÷ÓÃ `TVMArrayCopyToBytes`¡£
+[å‚è€ƒ4](#ref4)å’Œ[å‚è€ƒ2](#ref2)/[3](#ref3)è¿˜æœ‰ä¸€ä¸ªé‡è¦çš„åŒºåˆ«ï¼Œå°±æ˜¯å¯¹è¾“å…¥/è¾“å‡ºæ•°æ®çš„å¤„ç†ã€‚
+ä¸ºäº†æŠŠæ•°æ®å¤åˆ¶è¿›gpu,å¿…é¡»è°ƒç”¨ `TVMArrayCopyFromBytes`ã€‚
+ä¸ºäº†æŠŠæ•°æ®ä»gpuå¤åˆ¶å‡ºæ¥ï¼Œå¿…é¡»è°ƒç”¨ `TVMArrayCopyToBytes`ã€‚
 
 ### TVM device_type
-PcÉÏÊ¹ÓÃnvida gpuµÄ»°£¬±à³Ì½Ó¿ÚÓÃcuda.
-ÊÖ»úÉÏÊ¹ÓÃgpuµÄ»°£¬±à³Ì½Ó¿ÚĞèÒªÓÃOpenCL¿â.
-1. ÔÚtvmÄÚ£¬ÒªÊ¹ÓÃcpuµÄ»°£¬ÔËËãdevice_typeÊÇkDLCPU(1)¡£
-2. ÒªÊ¹ÓÃÊÖ»úopencl gpuµÄ»°£¬ÔËËãdevice_typeÊÇkDLOpenCL(4)¡£
-3. ÒªÊ¹ÓÃpc nvida gpuµÄ»°£¬ÔËËãdevice_typeÊÇkDLGPU(2)
+Pcä¸Šä½¿ç”¨nvida gpuçš„è¯ï¼Œç¼–ç¨‹æ¥å£ç”¨cuda.
+æ‰‹æœºä¸Šä½¿ç”¨gpuçš„è¯ï¼Œç¼–ç¨‹æ¥å£éœ€è¦ç”¨OpenCLåº“.
+1. åœ¨tvmå†…ï¼Œè¦ä½¿ç”¨cpuçš„è¯ï¼Œè¿ç®—device_typeæ˜¯kDLCPU(1)ã€‚
+2. è¦ä½¿ç”¨æ‰‹æœºopencl gpuçš„è¯ï¼Œè¿ç®—device_typeæ˜¯kDLOpenCL(4)ã€‚
+3. è¦ä½¿ç”¨pc nvida gpuçš„è¯ï¼Œè¿ç®—device_typeæ˜¯kDLGPU(2)
 
-### ×¼±¸opencl.hºÍ.soÎÄ¼ş
-±àÒëtvm£¬ĞèÒªopenclµÄÍ·ÎÄ¼ş.
-´Ó[²Î¿¼6](#ref6)ÏÂÔØopencl.hÍ·ÎÄ¼ş.
-ÊÖ»úÉÏ±àÒëtvm£¬»¹ĞèÒª libOpenCL.soÎÄ¼ş.
-¿ÉÒÔÖ±½Ó´ÓÄãµÄÊÖ»úÄÚ£¬ÕÒµ½libOpenCL.so£¬ÏÂÔØÏÂÀ´£¬·Åµ½ÄãµÄndkÄ¿Â¼ÄÚÈ¥.
-ÎÒµÄÊÖ»úºÍpcÉÏµÄndkÄ¿Â¼Î»ÖÃ£º  
+### å‡†å¤‡opencl.hå’Œ.soæ–‡ä»¶
+ç¼–è¯‘tvmï¼Œéœ€è¦openclçš„å¤´æ–‡ä»¶.
+ä»[å‚è€ƒ6](#ref6)ä¸‹è½½opencl.hå¤´æ–‡ä»¶.
+æ‰‹æœºä¸Šç¼–è¯‘tvmï¼Œè¿˜éœ€è¦ libOpenCL.soæ–‡ä»¶.
+å¯ä»¥ç›´æ¥ä»ä½ çš„æ‰‹æœºå†…ï¼Œæ‰¾åˆ°libOpenCL.soï¼Œä¸‹è½½ä¸‹æ¥ï¼Œæ”¾åˆ°ä½ çš„ndkç›®å½•å†…å».
+æˆ‘çš„æ‰‹æœºå’Œpcä¸Šçš„ndkç›®å½•ä½ç½®ï¼š  
 
-|ÊÖ»úÖ¸Áî¼¯|´ÓÊÖ»úÉÏÏÂÔØ|¸´ÖÆµ½NDKÄ¿Â¼|
+|æ‰‹æœºæŒ‡ä»¤é›†|ä»æ‰‹æœºä¸Šä¸‹è½½|å¤åˆ¶åˆ°NDKç›®å½•|
 |--|--|--|
 |Armeabi-v7|/vendor/lib/libOpenCL.so|C:\Users\<your name>\AppData\Local\Android\Sdk\android-ndk-r19\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\8.0.2\lib\linux\arm|
 |Arm64-v8|/vendor/lib64/libOpenCL.so|C:\Users\<your name>\AppData\Local\Android\Sdk\android-ndk-r19\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\8.0.2\lib\linux\aarch64|
 
-### ×¼±¸ÊÖ»úUI
-×¼±¸ºÃÒÔÉÏµÄc++´úÂë,opencl.h/.so,¾Í¿ÉÒÔ±àÒë³ötvm so¿âÎÄ¼şÁË¡£
-ÎªÁËÔÚÊÖ»úÉÏÔËĞĞÆğÀ´£¬ĞèÒªjava UI½çÃæ¡£
-¿ÉÒÔÓÃtvm×Ô´øµÄandroid demo([²Î¿¼7](#ref7))£¬±àÒëºóÔËĞĞÆğÀ´¡£
-Tvm×Ô´øµÄ´úÂë»á´ÓÍøÂçÏÂÔØÊı¾İ£¬²¢ÇÒÓÉÓÚµ÷ÓÃÁËlinuxÃüÁî£¬Ö»ÄÜÔÚlinuxÏÂ±àÒë¡£
+### å‡†å¤‡æ‰‹æœºUI
+å‡†å¤‡å¥½ä»¥ä¸Šçš„c++ä»£ç ,opencl.h/.so,å°±å¯ä»¥ç¼–è¯‘å‡ºtvm soåº“æ–‡ä»¶äº†ã€‚
+ä¸ºäº†åœ¨æ‰‹æœºä¸Šè¿è¡Œèµ·æ¥ï¼Œéœ€è¦java UIç•Œé¢ã€‚
+å¯ä»¥ç”¨tvmè‡ªå¸¦çš„android demo([å‚è€ƒ7](#ref7))ï¼Œç¼–è¯‘åè¿è¡Œèµ·æ¥ã€‚
+Tvmè‡ªå¸¦çš„ä»£ç ä¼šä»ç½‘ç»œä¸‹è½½æ•°æ®ï¼Œå¹¶ä¸”ç”±äºè°ƒç”¨äº†linuxå‘½ä»¤ï¼Œåªèƒ½åœ¨linuxä¸‹ç¼–è¯‘ã€‚
 
-### ÔËĞĞtvm
-±àÒë³öandroid demo appºó£¬¾ÍÄÜÔÚÊÖ»úÉÏ²âÊÔÁË¡£
+### è¿è¡Œtvm
+ç¼–è¯‘å‡ºandroid demo appåï¼Œå°±èƒ½åœ¨æ‰‹æœºä¸Šæµ‹è¯•äº†ã€‚
 
 
-## ÊÖ»úgpuÔËĞĞËÙ¶È²âÊÔ
-ÎÒÃÇÊ¹ÓÃgpuµÄÄ¿µÄÊÇÎªÁËÌá¸ßËÙ¶È£¬µ«ÊÇ¾İËµÊÇopenclµÄÒ»¸öbug£¬µ¼ÖÂtvm gpuÔÚÊÖ»úÉÏÊ§È¥ÁËËÙ¶ÈÓÅÊÆ¡£
-. ÎÊÌâ1ÊÇ£ºtvmµÚÒ»´Î¼ÓÔØÔËĞĞÄ£ĞÍ£¬openclµ÷ÓÃ»á·Ç³£Âı£¬È»ºóºóÃæ¾Í»á¿ìÆğÀ´¡£¶ÔÊÖ»úappÀ´½²£¬Æô¶¯Âı£¬ÊÇ²»¿ÉÈÌÊÜµÄ¡£
+## æ‰‹æœºgpuè¿è¡Œé€Ÿåº¦æµ‹è¯•
+æˆ‘ä»¬ä½¿ç”¨gpuçš„ç›®çš„æ˜¯ä¸ºäº†æé«˜é€Ÿåº¦ï¼Œä½†æ˜¯æ®è¯´æ˜¯openclçš„ä¸€ä¸ªbugï¼Œå¯¼è‡´tvm gpuåœ¨æ‰‹æœºä¸Šå¤±å»äº†é€Ÿåº¦ä¼˜åŠ¿ã€‚
+. é—®é¢˜1æ˜¯ï¼štvmç¬¬ä¸€æ¬¡åŠ è½½è¿è¡Œæ¨¡å‹ï¼Œopenclè°ƒç”¨ä¼šéå¸¸æ…¢ï¼Œç„¶ååé¢å°±ä¼šå¿«èµ·æ¥ã€‚å¯¹æ‰‹æœºappæ¥è®²ï¼Œå¯åŠ¨æ…¢ï¼Œæ˜¯ä¸å¯å¿å—çš„ã€‚
 
-. ÎÊÌâ2ÊÇ£ºtvmÊ¹ÓÃgpuµÄ»°£¬ÍÆÀí(run)È·ÊµºÜ¿ì£¬µ«ÊÇÒªÈ¡µÃÍÆÀí(run)µÄ½á¹û£¨get_output£©£¬È´·Ç³£Âı¡£
-ÎÊÌâ2²Î¼û[²Î¿¼8](#ref8)¡£
+. é—®é¢˜2æ˜¯ï¼štvmä½¿ç”¨gpuçš„è¯ï¼Œæ¨ç†(run)ç¡®å®å¾ˆå¿«ï¼Œä½†æ˜¯è¦å–å¾—æ¨ç†(run)çš„ç»“æœï¼ˆget_outputï¼‰ï¼Œå´éå¸¸æ…¢ã€‚
+é—®é¢˜2å‚è§[å‚è€ƒ8](#ref8)ã€‚
 
-¿¼ÂÇµ½ÕâÁ½¸öÎÊÌâ£¬ÔÚÊÖ»úÉÏ£¬»¹ÊÇÓÃcpu°É£¬gpu»¹Ã»·¨ÊµÓÃ¡£
+è€ƒè™‘åˆ°è¿™ä¸¤ä¸ªé—®é¢˜ï¼Œåœ¨æ‰‹æœºä¸Šï¼Œè¿˜æ˜¯ç”¨cpuå§ï¼Œgpuè¿˜æ²¡æ³•å®ç”¨ã€‚
 
-# ²Î¿¼
+# å‚è€ƒ
 
-## Ãû´Ê½âÊÍ:
-Ãû´Ê1t TVM: ÓÅ»¯Ä£ĞÍÔËËãËÙ¶È£¬Éú³ÉÄÜÔÚÊÖ»úÉÏÔËĞĞµÄ¶ş½øÖÆ´úÂë¡£Ãû´Ê2GPU£º±ÈcpuÔËËã¿ì£¬×¨ÃÅÓÃÓÚ´óÊı¾İÔËËã.Ãû´Ê3Tensorflow: googleÍÆµÄÈË¹¤ÖÇÄÜÄ£ĞÍÑµÁ·¿ò¼Ü.
+## åè¯è§£é‡Š:
+. åè¯1 TVM: ä¼˜åŒ–æ¨¡å‹è¿ç®—é€Ÿåº¦ï¼Œç”Ÿæˆèƒ½åœ¨æ‰‹æœºä¸Šè¿è¡Œçš„äºŒè¿›åˆ¶ä»£ç ã€‚
+. åè¯2 GPUï¼šæ¯”cpuè¿ç®—å¿«ï¼Œä¸“é—¨ç”¨äºå¤§æ•°æ®è¿ç®—.
+. åè¯3 Tensorflow: googleæ¨çš„äººå·¥æ™ºèƒ½æ¨¡å‹è®­ç»ƒæ¡†æ¶.
 
-## ²Î¿¼Á´½Ó:
-### ²Î¿¼1{#ref1}
-tvmÍøÕ¾ https://tvm.ai/
+## å‚è€ƒé“¾æ¥:
+### å‚è€ƒ1{#ref1}
+tvmç½‘ç«™ https://tvm.ai/
 
-### ²Î¿¼2{#ref2}
-ÔÚCPPÏÂÊ¹ÓÃTVMÀ´²¿ÊğmxnetÄ£ĞÍ£¨ÒÔInsightfaceÎªÀı£©
+### å‚è€ƒ2{#ref2}
+åœ¨CPPä¸‹ä½¿ç”¨TVMæ¥éƒ¨ç½²mxnetæ¨¡å‹ï¼ˆä»¥Insightfaceä¸ºä¾‹ï¼‰
 https://zhuanlan.zhihu.com/p/55996985?utm_source=wechat_timeline&utm_medium=social&utm_oi=882552529345466368&from=timeline
 
-### ²Î¿¼3{#ref3}
-Ò»²½Ò»²½½â¶ÁÉñ¾­ÍøÂç±àÒëÆ÷TVM(¶ş)ÀûÓÃTVMÍê³ÉC++¶ËµÄ²¿Êğ
+### å‚è€ƒ3{#ref3}
+ä¸€æ­¥ä¸€æ­¥è§£è¯»ç¥ç»ç½‘ç»œç¼–è¯‘å™¨TVM(äºŒ)åˆ©ç”¨TVMå®ŒæˆC++ç«¯çš„éƒ¨ç½²
 https://zhuanlan.zhihu.com/p/60981432
 
-### ²Î¿¼4ÊÖ»úÉÏÔËĞĞtvm gpu c++{#ref4}
+### å‚è€ƒ4æ‰‹æœºä¸Šè¿è¡Œtvm gpu c++{#ref4}
 tvm_deploy_gpu_sample.cpp
 https://gist.github.com/masahi/d6ad36890d087f866de185f19aac3814
 
-### ²Î¿¼5Opencl-Z app{#ref5}
-¼ì²â androidÊÇ·ñÖ§³Ö opencl(GPU)
+### å‚è€ƒ5Opencl-Z app{#ref5}
+æ£€æµ‹ androidæ˜¯å¦æ”¯æŒ opencl(GPU)
 https://stackoverflow.com/questions/26795921/does-android-support-opencl
 You can use OpenCL-Z Android to check the available and capabilities of OpenCL on Android devices.
 OpenCL-Z apk:
 https://www.allfreeapk.com/opencl-z,1359401/download.html
 
-### ²Î¿¼6ÏÂÔØ opencl.h{#ref6}
+### å‚è€ƒ6ä¸‹è½½ opencl.h{#ref6}
 https://stackoverflow.com/questions/29082524/android-studio-fatal-error-cl-cl-h-no-such-file-or-directory
 
-### ²Î¿¼7 TvmµÄandroid demo(linux ){#ref7}
+### å‚è€ƒ7 Tvmçš„android demo(linux ){#ref7}
 Apps/android_deploy
 https://github.com/dmlc/tvm/tree/master/apps/android_deploy
 
-### ²Î¿¼8 How to make the GPU to CPU memory copy faster? #979{#ref8}
+### å‚è€ƒ8 How to make the GPU to CPU memory copy faster? #979{#ref8}
 https://github.com/dmlc/tvm/issues/979?from=timeline
 
 clEnqueueReadBuffer is too slow
