@@ -1,4 +1,4 @@
-﻿2019.4.27
+2019.4.27
 
 TVM:手机[gpu|cpu]上运行Tensorflow模型
 目的
@@ -44,29 +44,9 @@ Pc上使用nvida gpu的话，编程接口用cuda.
 手机上编译tvm，还需要 libOpenCL.so文件.
 可以直接从你的手机内，找到libOpenCL.so，下载下来，放到你的ndk目录内去.
 我的手机和ndk目录位置： 
-手机指令
-集
-从手机上下载
-复制到NDK目录
-Armeabi-v
-7
-/vendor/lib/libOpenCL.so
-C:\Users\<your 
-name>\AppData\Local\Android\Sdk\android-ndk-r19\
-ndk-bundle\
-toolchains\llvm\prebuilt\windows-x86_64\lib64\clang
-\8.0.2\lib\linux\arm
-Arm64-v8
-/vendor/lib64/libOpenCL.so
-C:\Users\<your 
-name>\AppData\Local\Android\Sdk\android-ndk-r19\
-ndk-bundle\
-toolchains\llvm\prebuilt\windows-x86_64\lib64\clang
-\8.0.2\lib\linux\aarch64
-
-
-
-
+手机指令集从手机上下载复制到NDK目录Armeabi-v7/vendor/lib/libOpenCL.soC:\Users\<your name>\AppData\Local\Android\Sdk\android-ndk-r19\ndk-bundle\
+toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\8.0.2\lib\linux\armArm64-v8/vendor/lib64/libOpenCL.soC:\Users\<your name>\AppData\Local\Android\Sdk\android-ndk-r19\ndk-bundle\
+toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\8.0.2\lib\linux\aarch64
 
 准备手机UI
 准备好以上的c++代码,opencl.h/.so,就可以编译出tvm so库文件了。
@@ -79,13 +59,10 @@ Tvm自带的代码会从网络下载数据，并且由于调用了linux命令，
 
 
 手机gpu运行速度测试
-我们使用gpu的目的是为了提高速度，但是据说是opencl的一个bug，导致tvm gpu在手机
-上失去了速度优势。
-问题1是：tvm第一次加载运行模型，opencl调用会非常慢，然后后面就会快起来。对手机app
-来讲，启动慢，是不可忍受的。
+我们使用gpu的目的是为了提高速度，但是据说是opencl的一个bug，导致tvm gpu在手机上失去了速度优势。
+问题1是：tvm第一次加载运行模型，opencl调用会非常慢，然后后面就会快起来。对手机app来讲，启动慢，是不可忍受的。
 
-问题2是：tvm使用gpu的话，推理(run)确实很快，但是要取得推理(run)的结果（get_output），
-却非常慢。
+问题2是：tvm使用gpu的话，推理(run)确实很快，但是要取得推理(run)的结果（get_output），却非常慢。
 问题2参见参考8。
 
 考虑到这两个问题，在手机上，还是用cpu吧，gpu还没法实用。
@@ -93,62 +70,28 @@ Tvm自带的代码会从网络下载数据，并且由于调用了linux命令，
 参考
 
 名词解释:
-名词1
-t TVM: 优化模型运算速度，生成能在手机上运行的二进制代码。
-名词2
-GPU：比cpu运算快，专门用于大数据运算.
-名词3
-Tensorflow: google推的人工智能模型训练框架.
-
-
-
+名词1t TVM: 优化模型运算速度，生成能在手机上运行的二进制代码。名词2GPU：比cpu运算快，专门用于大数据运算.名词3Tensorflow: google推的人工智能模型训练框架.
 
 参考链接:
-参
-考
-1
-tvm网站 https://tvm.ai/
-参
-考
-2
-在CPP下使用TVM来部署mxnet模型（以Insightface为例）
+参考1tvm网站 https://tvm.ai/参考2在CPP下使用TVM来部署mxnet模型（以Insightface为例）
 https://zhuanlan.zhihu.com/p/55996985?utm_source=wechat_timeline&utm_medium=social&utm_oi=882552529345466368&from=timeline
-参
-考
-3
-一步一步解读神经网络编译器TVM(二)——利用TVM完成C++端的部署
+参考3一步一步解读神经网络编译器TVM(二)利用TVM完成C++端的部署
 https://zhuanlan.zhihu.com/p/60981432
-参
-考
-4
-手机上运行tvm gpu c++
+参考4手机上运行tvm gpu c++
 tvm_deploy_gpu_sample.cpp
 https://gist.github.com/masahi/d6ad36890d087f866de185f19aac3814
-
-参
-考
-5
-Opencl-Z app
+参考5Opencl-Z app
 检测 android是否支持 opencl(GPU)
 https://stackoverflow.com/questions/26795921/does-android-support-opencl
 You can use OpenCL-Z Android to check the available and capabilities of OpenCL on Android devices.
 OpenCL-Z apk:
 https://www.allfreeapk.com/opencl-z,1359401/download.html
-参
-考
-6
-下载 opencl.h
+参考6下载 opencl.h
 https://stackoverflow.com/questions/29082524/android-studio-fatal-error-cl-cl-h-no-such-file-or-directory
-参
-考
-7
-Tvm的android demo(linux )
+参考7Tvm的android demo(linux )
 Apps/android_deploy
 https://github.com/dmlc/tvm/tree/master/apps/android_deploy
-参
-考
-8
-How to make the GPU to CPU memory copy faster? #979
+参考8How to make the GPU to CPU memory copy faster? #979
 https://github.com/dmlc/tvm/issues/979?from=timeline
 
 clEnqueueReadBuffer is too slow
