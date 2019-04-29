@@ -1,5 +1,6 @@
 # tvm-android-demo
-tvm android arm gpu opencl
+
+[tvm android arm gpu opencl](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-android-demo.md)
 
 2019.4.29
 ## обть
