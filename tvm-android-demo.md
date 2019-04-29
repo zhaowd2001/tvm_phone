@@ -3,46 +3,47 @@
 [tvm android arm gpu opencl](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-android-demo.md)
 
 2019.4.29
-## ÏÂÔØ
-   - ÏÂÔØĞèÒªµÄÓÃ»§Ãû¿ÚÁî¶¼ÊÇpub
+## ä¸‹è½½
+   - ä¸‹è½½éœ€è¦çš„ç”¨æˆ·åå£ä»¤éƒ½æ˜¯pub
    - [tvm android demo apk](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/build/outputs/apk/debug/app-debug.apk)
-   - [tvm android demo Ô´´úÂë: android studio ](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy)
+   - [tvm android demo æºä»£ç : android studio ](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy)
    - [tvm jar : tvm4j-core-0.0.1-SNAPSHOT.jar](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/libs/tvm4j-core-0.0.1-SNAPSHOT.jar)
-   - [ÊÖ»úgpuµÄÔËĞĞ¿â: libOpenCL.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jni/opencl/jnilibs)
-   - [tvm ÔËĞĞ¿â: libtvm4j_runtime_packed.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jnilibs)
+   - [æ‰‹æœºgpuçš„è¿è¡Œåº“: libOpenCL.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jni/opencl/jnilibs)
+   - [tvm è¿è¡Œåº“: libtvm4j_runtime_packed.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jnilibs)
    
 
-## Ä¿µÄ
-   Ìá¹©ÄÜÖ±½Ó°²×°µ½androidÊÖ»úÉÏ£¬ÔËĞĞÆğÀ´µÄ tvm demo °²×°°ü.
-   Í¬Ê±Ìá¹©android studioÔ´´úÂë£¬Ö»ĞèÒªandroid studio¾ÍÄÜ±àÒë³ö tvm demo °²×°°ü.
-   
-   TVM ×Ô´øµÄ android demo, ±àÒëÊ±ÓĞÒÔÏÂĞ¡ÎÊÌâ:
+## ç›®çš„
+   æä¾›èƒ½ç›´æ¥å®‰è£…åˆ°androidæ‰‹æœºä¸Šï¼Œè¿è¡Œèµ·æ¥çš„ tvm demo å®‰è£…åŒ….
 
-   - ÎÊÌâ1. ĞèÒªÓÃµ½ android ndk, opencl Í·ÎÄ¼şºÍopencl¿âÎÄ¼ş.
+   åŒæ—¶æä¾›android studioæºä»£ç ï¼Œåªéœ€è¦android studioå°±èƒ½ç¼–è¯‘å‡º tvm demo å®‰è£…åŒ….
    
-   - ÎÊÌâ2. ÒòÎªÓÃbuild.shµ÷ÓÃndk-build, Ö»ÄÜÔÚ linux ÏÂ±àÒë.
-   
-   - ÎÊÌâ3. ±àÒë»¹ĞèÒª tvm jar:[tvm4j-core-0.0.1-SNAPSHOT.jar](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/libs/tvm4j-core-0.0.1-SNAPSHOT.jar)
-   
-   Õâµ¼ÖÂ±àÒë¹ı³Ì±È½ÏÇúÕÛ£¬²»»¨·ÑÒ»Ğ©Ê±¼ä£¬ºÜÄÑ±àÒë³öapp.
+   TVM è‡ªå¸¦çš„ android demo, ç¼–è¯‘æ—¶æœ‰ä»¥ä¸‹å°é—®é¢˜:
 
-   ËùÒÔ£¬ÎÒ°Ñ×Ô¼º±àÒëµÄapk·Å³öÀ´£¬Èç¹ûÄãÖ»ÏëÔÚandroidÉÏÌåÑéÉÏÒ»ÏÂ tvm µÄËÙ¶È£¬¿ÉÒÔÏÂÔØ±¾app¡£
+   - é—®é¢˜1. éœ€è¦ç”¨åˆ° android ndk, opencl å¤´æ–‡ä»¶å’Œopenclåº“æ–‡ä»¶.
+   
+   - é—®é¢˜2. å› ä¸ºç”¨build.shè°ƒç”¨ndk-build, åªèƒ½åœ¨ linux ä¸‹ç¼–è¯‘.
+   
+   - é—®é¢˜3. ç¼–è¯‘è¿˜éœ€è¦ tvm jar:[tvm4j-core-0.0.1-SNAPSHOT.jar](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/libs/tvm4j-core-0.0.1-SNAPSHOT.jar)
+   
+   è¿™å¯¼è‡´ç¼–è¯‘è¿‡ç¨‹æ¯”è¾ƒæ›²æŠ˜ï¼Œä¸èŠ±è´¹ä¸€äº›æ—¶é—´ï¼Œå¾ˆéš¾ç¼–è¯‘å‡ºapp.
 
-   Í¬Ê±,ÎÒ°ÑÒÀÀµµÄopencl/tvm jar,¶¼·Åµ½ÁËÔ´´úÂëÄÚ£¬ÕâÑùÄãÖ»ÒªÓÃandroid studio¾Í¿ÉÒÔ±àÒë³ö±¾app.
+   æ‰€ä»¥ï¼Œæˆ‘æŠŠè‡ªå·±ç¼–è¯‘çš„apkæ”¾å‡ºæ¥ï¼Œå¦‚æœä½ åªæƒ³åœ¨androidä¸Šä½“éªŒä¸Šä¸€ä¸‹ tvm çš„é€Ÿåº¦ï¼Œå¯ä»¥ä¸‹è½½æœ¬appã€‚
+
+   åŒæ—¶,æˆ‘æŠŠä¾èµ–çš„opencl/tvm jar,éƒ½æ”¾åˆ°äº†æºä»£ç å†…ï¼Œè¿™æ ·ä½ åªè¦ç”¨android studioå°±å¯ä»¥ç¼–è¯‘å‡ºæœ¬app.
  
 
-## ´úÂë¹¦ÄÜ
-   1. ÄÜÑ¡ÔñCPU»¹ÊÇGPU£¬È»ºóÔÙ¼ÓÔØ tvm ÔËĞĞ¿â
-   2. Ñ¡ÔñÍ¼Æ¬ºó£¬ÓÃtvm½øĞĞÍÆÀí£¬È»ºóÏÔÊ¾ÍÆÀí»¨·ÑµÄÊ±¼ä
+## ä»£ç åŠŸèƒ½
+   1. èƒ½é€‰æ‹©CPUè¿˜æ˜¯GPUï¼Œç„¶åå†åŠ è½½ tvm è¿è¡Œåº“
+   2. é€‰æ‹©å›¾ç‰‡åï¼Œç”¨tvmè¿›è¡Œæ¨ç†ï¼Œç„¶åæ˜¾ç¤ºæ¨ç†èŠ±è´¹çš„æ—¶é—´
 
-## ´úÂë¸Ä¶¯µã
-1. ×Ô´øÁË90MÄ£ĞÍÎÄ¼ş£¬±àÒëµÄÊ±ºò²»ÓÃÁªÍøÏÂÔØÁË
-   tvmÄ£ĞÍµÄÁ½¸ö so ÊÇ arm64, ËùÒÔÎÒÖ»±àÒëÁË arm64.
+## ä»£ç æ”¹åŠ¨ç‚¹
+1. è‡ªå¸¦äº†90Mæ¨¡å‹æ–‡ä»¶ï¼Œç¼–è¯‘çš„æ—¶å€™ä¸ç”¨è”ç½‘ä¸‹è½½äº†
+   tvmæ¨¡å‹çš„ä¸¤ä¸ª so æ˜¯ arm64, æ‰€ä»¥æˆ‘åªç¼–è¯‘äº† arm64.
    `build.gradle: abiFilters 'arm64-v8a'`
-   tvmÄ£ĞÍµÄÁ½¸öso: 
+   tvmæ¨¡å‹çš„ä¸¤ä¸ªso: 
    `apps\android_deploy\app\src\main\assets\deploy_lib_cpu.so/deploy_lib_opencl.so`
-2. ÃüÁîĞĞ build.sh ±àÒë libtvm4j_runtime_packed.so£¬¸Ä³ÉÁËÓÃ CMakeLists.txt ±àÒë so
-3. Ìí¼ÓÁË opencl Í·ÎÄ¼şºÍ so.
-   libOpenCL.so ÊÇ´Ó»ªÎªP10ÊÖ»úÄÚ¸´ÖÆ³öÀ´µÄ
-4. Ìí¼ÓÁË tvm4j-core-0.0.1-SNAPSHOT.jar, ²»ÓÃÔÙÈ¥±àÒëÁË
-5. Ìí¼ÓÁË libtvm4j_runtime_packed.so, Ò²²»ÓÃ±àÒëtvmÔËĞĞ¿âÁË
+2. å‘½ä»¤è¡Œ build.sh ç¼–è¯‘ libtvm4j_runtime_packed.soï¼Œæ”¹æˆäº†ç”¨ CMakeLists.txt ç¼–è¯‘ so
+3. æ·»åŠ äº† opencl å¤´æ–‡ä»¶å’Œ so.
+   libOpenCL.so æ˜¯ä»åä¸ºP10æ‰‹æœºå†…å¤åˆ¶å‡ºæ¥çš„
+4. æ·»åŠ äº† tvm4j-core-0.0.1-SNAPSHOT.jar, ä¸ç”¨å†å»ç¼–è¯‘äº†
+5. æ·»åŠ äº† libtvm4j_runtime_packed.so, ä¹Ÿä¸ç”¨ç¼–è¯‘tvmè¿è¡Œåº“äº†
