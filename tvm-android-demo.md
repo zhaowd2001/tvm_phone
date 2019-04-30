@@ -47,3 +47,37 @@
    libOpenCL.so 是从华为P10手机内复制出来的
 4. 添加了 tvm4j-core-0.0.1-SNAPSHOT.jar, 不用再去编译了
 5. 添加了 libtvm4j_runtime_packed.so, 也不用编译tvm运行库了
+
+## 编译tvm运行库
+   tvm的android运行库是libtvm4j_runtime_packed.so
+   我提供的代码内，是连接到libOpenCL.so的gpu版本.
+   下面描述如何编译gpu和cpu两个版本的运行库.
+   1. 编译 cpu 版本运行库
+   - 删除源代码内的所有 libtvm4j_runtime_packed.so. 
+     so在这个目录 `apps\android_deploy\app\src\main\jnilibs`
+   - 把 `apps\android_deploy\app\build-cpu.gradle` 覆盖到
+     `apps\android_deploy\app\build.gradle` . 
+   - 把 `apps\android_deploy\app\CMakeLists-cpu.txt` 覆盖到
+     `apps\android_deploy\app\CMakeLists.txt` . 
+   - 重新编译 android_deploy，生成的tvm运行库就是 cpu 版本的运行库.
+   新生成的库在下面的目录: `apps\android_deploy\app\build\intermediates\transforms\stripDebugSymbol\release\0\lib\`
+
+   2. 编译 tvm gpu 版本运行库
+   - 删除源代码内的所有 libtvm4j_runtime_packed.so. 
+     so在这个目录 `apps\android_deploy\app\src\main\jnilibs`
+   - 把 `apps\android_deploy\app\build-gpu.gradle` 覆盖到
+     `apps\android_deploy\app\build.gradle` . 
+   - 把 `apps\android_deploy\app\CMakeLists-gpu.txt` 覆盖到
+     `apps\android_deploy\app\CMakeLists.txt` . 
+   - 把 libOpenCL.so 复制到ndk的lib目录.
+     手机上编译tvm，还需要 libOpenCL.so文件.
+     可以直接从你的手机内，找到libOpenCL.so，下载下来，放到你的ndk目录内去.
+     我的手机和pc上的ndk目录位置：  
+
+|手机指令集|从手机上下载|复制到NDK目录|
+|--|--|--|
+|Armeabi-v7|/vendor/lib/libOpenCL.so|C:\Users\<your name>\AppData\Local\Android\Sdk\android-ndk-r19\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\8.0.2\lib\linux\arm|
+|Arm64-v8|/vendor/lib64/libOpenCL.so|C:\Users\<your name>\AppData\Local\Android\Sdk\android-ndk-r19\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\lib64\clang\8.0.2\lib\linux\aarch64|
+
+   - 重新编译 android_deploy，生成的tvm运行库就是 gpu 版本的运行库.
+   新生成的库在下面的目录: `apps\android_deploy\app\build\intermediates\transforms\stripDebugSymbol\release\0\lib\`
