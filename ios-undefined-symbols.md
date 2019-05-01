@@ -1,4 +1,4 @@
-# ios： Undefined symbols
+# [ios： Undefined symbols](https://github.com/zhaowd2001/tvm_phone/blob/master/ios-undefined-symbols.md)
 ios universal build
 
 2019.4.30
