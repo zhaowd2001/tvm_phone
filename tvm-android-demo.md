@@ -5,11 +5,19 @@
 2019.4.29
 ## 下载
    - 下载需要的用户名口令都是pub
-   - [tvm android demo apk](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/build/outputs/apk/debug/app-debug.apk)
-   - [tvm android demo 源代码: android studio ](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy)
-   - [tvm jar : tvm4j-core-0.0.1-SNAPSHOT.jar](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/libs/tvm4j-core-0.0.1-SNAPSHOT.jar)
-   - [手机gpu的运行库: libOpenCL.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jni/opencl/jnilibs)
-   - [tvm 运行库: libtvm4j_runtime_packed.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jnilibs)
+   - tvm android demo apk 
+   [arm64](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/build/outputs/apk/debug/app-debug.apk)
+   [armv7](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy_2_armv7/app/build/outputs/apk/debug/app-debug.apk)
+
+- tvm android demo 源代码: android studio
+   [arm64](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy)
+   [armv7](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy_2_armv7)
+
+- [tvm jar : tvm4j-core-0.0.1-SNAPSHOT.jar](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/libs/tvm4j-core-0.0.1-SNAPSHOT.jar)
+
+- [手机gpu的运行库: libOpenCL.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jni/opencl/jnilibs)
+
+- [tvm 运行库: libtvm4j_runtime_packed.so](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/jnilibs)
    
 
 ## 目的
