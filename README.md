@@ -9,3 +9,6 @@ tvm arm gpu opencl
 
 2019.4.30
 [IOS: Undefined symbols for architecture i386](https://github.com/zhaowd2001/tvm_phone/blob/master/ios-undefined-symbols.md)
+
+2019.5.6
+[tvm 在 android gpu 上的速度问题](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-android-gpu-speed.md)
