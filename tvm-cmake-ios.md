@@ -1,7 +1,8 @@
 # 用cmake生成ios framework库
 [cmake ios framework](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-cmake-ios.md)
 
-2019/5/5
+2019/5/8
+  @[TOC]
 
 ## 代码下载 
 
@@ -20,7 +21,7 @@
 ## 目的
    本文描述如何用cmake，在android和iphone两个平台下，生成各自的库文件，供app调用.
 
-## 版本1
+## 版本1: cmake
 ### 代码目录结构
 
    我准备的演示代码目录如下:
@@ -93,7 +94,7 @@ set_target_properties(tvm_model PROPERTIES
    
    参照[cmake 打包 ios sdk](https://github.com/Tencent/ncnn/wiki/cmake-%E6%89%93%E5%8C%85-ios-sdk?from=singlemessage), 我们可以把 readme.md, 复制到 tvm_model.framework 目录.
 
-## 版本2
+## 版本2: ios-cmake
    这次，我们用网上推荐的 [ios-cmake](https://github.com/leetal/ios-cmake) 来试一下。
    ios-cmake 需要[cmake-3.14](https://cmake.org/download/) 版本，要下载安装一下。
    仿照它的例子，制作编译的 CMakeLists.txt如下：
@@ -160,6 +161,64 @@ cd ..
    ```
    
    最后，把参考3内的example app复制一份，修改一下，引用我们的tvm_model.framework，就能在模拟器上跑起来了。
+  
+## 版本3: opencv2.framework
+   要在tvm_model.framework内使用 opencv,就需要连接opencv库.
+   
+   ```
+   # include 路径
+   include_directories(SYSTEM ../OpenCV/3.4.3/opencv2.framework)
+   # link opencv2 库
+   target_link_libraries(tvm_model "-framework opencv2")
+   # link 的搜索目录
+   set_target_properties(tvm_model PROPERTIES
+      LINK_FLAGS "-Wl,-F../OpenCV/3.4.3"
+   )
+
+   ```
+   
+   在 `tvm_model_c.cc` 内调用一下 opencv 函数，做个简单测试:
+   
+   ```
+   
+#include <opencv2/core/core.hpp>
+#include <opencv2/opencv.hpp>
+
+#include <vector>
+
+    static int Mat_to_HWC(const cv::Mat &frame, int w, float *ret){
+        assert(ret && !frame.empty());
+        if(! ret || frame.empty())
+            return -1;
+
+        unsigned int volChl = w * w;
+
+        for (unsigned j = 0; j < volChl; ++j) {
+            for (int c = 0; c < 3; ++c) {
+                ret[j * 3 + c ] = static_cast<float>(float(frame.data[j * 3 + c]) / 255.0);
+            }
+        }
+        return 0;
+    }
+
+
+int TVMModelC::run(int x){
+	cv::Mat img;
+	std::vector<float> ret(128);
+	Mat_to_HWC(img, 64, &ret[0]);
+	return x*x;
+}
+
+   ```
+   
+   编译一下:
+   ```
+    sh build.ios-xcodeproj.sh  # 创建xcode工程
+    sh build.ios.sh #编译
+   ```
+   编译结果文件是：
+   ` build.ios/Debug-iphonesimulator/tvm_model.framework/tvm_model`
+   大小是1.4M.
    
 ## 参考
   - 参考1: [cmake 打包 ios sdk](https://github.com/Tencent/ncnn/wiki/cmake-%E6%89%93%E5%8C%85-ios-sdk?from=singlemessage)
@@ -168,3 +227,6 @@ cd ..
   - 参考4: [cmake-3.14](https://cmake.org/download/) 
   - 参考5: [What is the difference between Embedded Binaries and Linked Frameworks](https://stackoverflow.com/questions/32375687/what-is-the-difference-between-embedded-binaries-and-linked-frameworks)
   - 参考6：[Technical Note TN2435: Embedding Frameworks In An App](https://developer.apple.com/library/archive/technotes/tn2435/_index.html)
+  - 参考7: [Why I cannot link the Mac framework file with CMake?](https://stackoverflow.com/questions/17070101/why-i-cannot-link-the-mac-framework-file-with-cmake)
+  - 参考8: [CMake Build Configuration for iOS](https://github.com/sheldonth/ios-cmake)
+  - 参考9： [CMake include_directories skips OS X frameworks](https://stackoverflow.com/questions/33332021/cmake-include-directories-skips-os-x-frameworks）
