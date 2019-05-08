@@ -232,7 +232,8 @@ int TVMModelC::run(int x){
   - 参考3: [ios-cmake](https://github.com/leetal/ios-cmake) 
   - 参考4: [cmake-3.14](https://cmake.org/download/) 
   - 参考5: [What is the difference between Embedded Binaries and Linked Frameworks](https://stackoverflow.com/questions/32375687/what-is-the-difference-between-embedded-binaries-and-linked-frameworks)
-  - 参考6：[Technical Note TN2435: Embedding Frameworks In An App](https://developer.apple.com/library/archive/technotes/tn2435/_index.html)
+  - 参考6： [Technical Note TN2435: Embedding Frameworks In An App](https://developer.apple.com/library/archive/technotes/tn2435/_index.html)
   - 参考7: [Why I cannot link the Mac framework file with CMake?](https://stackoverflow.com/questions/17070101/why-i-cannot-link-the-mac-framework-file-with-cmake)
   - 参考8: [CMake Build Configuration for iOS](https://github.com/sheldonth/ios-cmake)
-  - 参考9： [CMake include_directories skips OS X frameworks](https://stackoverflow.com/questions/33332021/cmake-include-directories-skips-os-x-frameworks）
+  - 参考9： [CMake include_directories skips OS X frameworks](https://stackoverflow.com/questions/33332021/cmake-include-directories-skips-os-x-frameworks)
+  
