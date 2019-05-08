@@ -8,8 +8,12 @@
 
 ## 代码下载 
 
-   [cmake-ios-demo 版本1](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/tvm_demo1)
-   [cmake-ios-demo 版本2](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/tvm_demo2)
+   [cmake-ios-demo 版本1: cmake ](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/tvm_demo1)
+   
+   [cmake-ios-demo 版本2: ios-cmake ](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/tvm_demo2)
+   
+   [cmake-ios-demo 版本3: opencv2.framework ](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/tvm_demo3)
+   
    
 ## 背景
    如果你开发了一套c++代码，要在android和iphone两种手机上运行，就要在分别编译android和iphone两个平台下的动态库。
