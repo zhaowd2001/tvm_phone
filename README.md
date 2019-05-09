@@ -20,3 +20,6 @@ tvm arm gpu opencl
 
 2019.5.8
 [mac机器上编译tvm](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-mac-build.md)
+
+2019.5.9
+[NFC on android](https://github.com/zhaowd2001/tvm_phone/blob/master/android-nfc.md)
