@@ -23,3 +23,6 @@ tvm arm gpu opencl
 
 2019.5.9
 [NFC on android](https://github.com/zhaowd2001/tvm_phone/blob/master/android-nfc.md)
+
+2019.5.9
+[export lib for ios](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-ios-export.md)
