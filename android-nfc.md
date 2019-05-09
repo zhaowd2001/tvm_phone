@@ -8,6 +8,9 @@ NFC on android
 
 ## 代码下载 
 
+    [Android NFC Demo](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_rpc)
+
+   ![NFC Demo](https://github.com/zhaowd2001/tvm_phone/blob/master/android-nfc.png?raw=true)
    
    
    
@@ -121,6 +124,7 @@ NFC on android
 
 然后，在你的Activity的onCreate/onResume/onPause/onNewIntent内，添加NFC代码，就能接收到刷卡信息。
  
+
 ## 参考
   - 参考1: [Android NFC开发教程](http://c.biancheng.net/view/3202.html)
   
