@@ -47,7 +47,7 @@ NFC on android
    
    在app的Activity内，注册一下，就能收到刷卡时的通知。
    
-###Activity.onCreate 内初始化NFC
+### Activity.onCreate 内初始化NFC
    onCreate内，添加以下代码，向NFC系统注册一下，让刷卡后，NFC系统调用你:
 
    ```
