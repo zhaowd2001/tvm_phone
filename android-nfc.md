@@ -1,5 +1,7 @@
 NFC on android 
-[NFC on android](https://github.com/zhaowd2001/tvm_phone/blob/master/android-nfc.md)
+
+   [NFC on android](https://github.com/zhaowd2001/tvm_phone/blob/master/android-nfc.md)
+
 
 2019/5/9
   目录
@@ -8,7 +10,7 @@ NFC on android
 
 ## 代码下载 
 
-    [Android NFC Demo](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_rpc)
+   [Android NFC Demo](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_rpc)
 
    ![NFC Demo](https://github.com/zhaowd2001/tvm_phone/blob/master/android-nfc.png?raw=true)
    
@@ -23,6 +25,7 @@ NFC on android
    
 ## 申请NFC权限
    在工程的 AndroidManifest.xml 文件中添加如下代码，用于获取 NFC 硬件访问权限：
+   
   ```
   <uses-permission android:name="android.permission.NFC" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -31,6 +34,7 @@ NFC on android
 
 ## 为Activity 添加 singleTask
    仍然在是AndroidManifest.xml，为你的Activity添加singleTask.
+   
    ```
    <activity android:name="your activity"
    android:launchMode="singleTask"/>
@@ -45,6 +49,7 @@ NFC on android
    
 ###Activity.onCreate 内初始化NFC
    onCreate内，添加以下代码，向NFC系统注册一下，让刷卡后，NFC系统调用你:
+
    ```
        public boolean init(){
         NfcManager mNfcManager = (NfcManager) activity_.getSystemService(Context.NFC_SERVICE);
@@ -73,6 +78,7 @@ NFC on android
    ```
   
 ### Activity.onResume内处理一下NFC
+   
    ```
        public  void resume(){
         if (mNfcAdapter != null) {
@@ -87,6 +93,7 @@ NFC on android
    ```
 
 ### Activity.onPause 内停止接收 NFC 
+   
    ```
     public  void stopNFC_Listener() {
         if(mNfcAdapter!=null) {
@@ -96,8 +103,8 @@ NFC on android
    ```
 
 ### Activity.onNewIntent 内接收NFC发给你的卡片信息
-
-    ```
+   
+   ```
     public String processIntent(Intent intent) {
         String data = null;
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
