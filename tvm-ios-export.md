@@ -1,4 +1,4 @@
-tvm: from_tensorflow_for_ios
+tvm: from_tensorflow_ios
 
 [export lib for ios](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-ios-export.md)
 
@@ -9,7 +9,7 @@ tvm: from_tensorflow_for_ios
 
 ## 代码下载 
 
-   [ios deploy](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/ios_deploy)
+   [from_tensorflow_ios.py](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/ios_deploy)
 
    ![ios deploy Demo](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-ios-export.png?raw=true)
    
