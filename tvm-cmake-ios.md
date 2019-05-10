@@ -225,7 +225,26 @@ int TVMModelC::run(int x){
    编译结果文件是：
    ` build.ios/Debug-iphonesimulator/tvm_model.framework/tvm_model`
    大小是1.4M.
+
+## 用cmake编译 ios app
+   参照参考10，能生成 ios app.
+   ```
+	cmake_minimum_required(VERSION 3.14)
+
+	Project (tvm_demo_ios C CXX)
+	set(SRC_FILES tvm_demo_ios/main.m)
+	add_executable(tvm_demo_ios ${SRC_FILES})
+	include_directories(SYSTEM ../tvm_model/build.ios/Debug-iphonesimulator/tvm_model.framework)
+	target_link_libraries(tvm_demo_ios "-framework tvm_model -framework UIKit")
+	set_target_properties(tvm_demo_ios PROPERTIES
+	  LINK_FLAGS "-Wl,-F../tvm_model/build.ios/Debug-iphonesimulator"
+	)
    
+	install(TARGETS tvm_demo_ios DESTINATION tvm_demo_ios.app)
+   ```
+   为了编译 ios app,需要连接到 UIKit.framework:
+   `   target_link_libraries(tvm_demo_ios "-framework UIKit")`
+
 ## 参考
   - 参考1: [cmake 打包 ios sdk](https://github.com/Tencent/ncnn/wiki/cmake-%E6%89%93%E5%8C%85-ios-sdk?from=singlemessage)
   - 参考2: [ios使用cmake编译framework](https://blog.csdn.net/zhuyunier/article/details/83025615)
@@ -236,4 +255,4 @@ int TVMModelC::run(int x){
   - 参考7: [Why I cannot link the Mac framework file with CMake?](https://stackoverflow.com/questions/17070101/why-i-cannot-link-the-mac-framework-file-with-cmake)
   - 参考8: [CMake Build Configuration for iOS](https://github.com/sheldonth/ios-cmake)
   - 参考9： [CMake include_directories skips OS X frameworks](https://stackoverflow.com/questions/33332021/cmake-include-directories-skips-os-x-frameworks)
-  
+  - 参考10: [cmake ios app 跨平台编译的经验之谈－－Xcode之旅](https://www.jianshu.com/p/e4ece730de8e)
