@@ -43,6 +43,16 @@ tvm: from_tensorflow_for_ios
    target = "metal"
    target_host = "llvm -target=arm64-apple-darwin"
    ```
+   
+   要使用ios metal，需要在tvm内启用metal，方法如下：
+   - 修改 build/config.cmake, 把 `set(USE_METAL OFF)`, 改成 `set(USE_METAL ON)`.
+   - 重新编译 tvm: 
+   ```
+   cd build
+   cmake ..
+   make -j4
+   ```
+   
 
    - cpu
    
@@ -87,7 +97,45 @@ tvm: from_tensorflow_for_ios
    lib.export_library(path_dso1, xcode.create_dylib, arch=arch, sdk=sdk)
    xcode.codesign(path_dso1)
    ```
- 
+
+### 保存模型数据
+   只有 dylib ，tvm还需要模型文件才能运行起来。
+   需要把graph 和 params保存下来，代码如下:
+   
+   ```
+        so_name = "cpu_lib"
+
+        lib.save(os.path.join(build_dir, so_name + ".o"))
+
+        with open(os.path.join(build_dir, 'cpu_deploy_graph.json'), 'w') as f_graph_json:
+            f_graph_json.write(graph)
+
+        with open(os.path.join(build_dir, 'cpu_deploy_param.params'), 'wb') as f_params:
+            # save the parameters as byte array
+            param_bytes = tvm.relay.save_param_dict(params)
+            f_params.write(param_bytes)
+   ```
+   
+   
+## 文件信息
+   下面总结一下，模型文件信息，和为ios生成的 dylib信息。
+   
+   |序号|文件名|大小|用途|
+   |--|--|--|--|
+   |1|~/.tvm_test_data/tf/InceptionV1/classify_image_graph_def-with_shapes.pb| 91M |tensorflow模型|
+   |2|~/.tvm_test_data/data/imagenet_2012_challenge_label_map_proto.pbtxt| 63K |tensorflow模型描述|
+   |3|~/.tvm_test_data/data/elephant-299.jpg| 53K |测试图片
+   |4|~/.tvm_test_data/data/imagenet_synset_to_human_label_map.txt| 724K |分类文件
+   |5|<tvm_home>/apps/ios_deploy/from_tensorflow.py||mac上,从模型生成 dylib|
+   |6|<tvm_home>/apps/ios_deploy/from_tensorflow_ios.py||mac上，从模型生成 dylib,能在ios上运行|
+   |7|<tvm_home>/apps/ios_deploy/build/metal_lib.dylib | 1M |ios上运行的 dylib, 能调用模型, gpu |
+   |8|<tvm_home>/apps/ios_deploy/build/metal_deploy_graph.json | 170K |模型结构 |
+   |9|<tvm_home>/apps/ios_deploy/build/metal_deploy_param.params | 91M |模型参数 |
+   |10|<tvm_home>/apps/ios_deploy/build/cpu_lib.dylib | 490K |ios上运行的 dylib, 能调用模型, cpu |
+   |11|<tvm_home>/apps/ios_deploy/build/cpu_deploy_graph.json | 179K |模型结构 |
+   |12|<tvm_home>/apps/ios_deploy/build/cpu_deploy_param.params | 91M |模型参数 |
+   
+   
 ## 参考
    - 参考1: [ios rpc](https://github.com/dmlc/tvm/tree/master/apps/ios_rpc)
    - 参考2: [ios_rpc_test.py](https://github.com/dmlc/tvm/blob/master/apps/ios_rpc/tests/ios_rpc_test.py)
