@@ -227,23 +227,53 @@ int TVMModelC::run(int x){
    大小是1.4M.
 
 ## 用cmake编译 ios app
-   参照参考10，能生成 ios app.
+   ### 参照参考10，能生成 ios app.
    ```
 	cmake_minimum_required(VERSION 3.14)
 
 	Project (tvm_demo_ios C CXX)
+
 	set(SRC_FILES tvm_demo_ios/main.m)
-	add_executable(tvm_demo_ios ${SRC_FILES})
+
+	add_executable(tvm_demo_ios MACOSX_BUNDLE ${SRC_FILES})
+
 	include_directories(SYSTEM ../tvm_model/build.ios/Debug-iphonesimulator/tvm_model.framework)
-	target_link_libraries(tvm_demo_ios "-framework tvm_model -framework UIKit")
+
+	target_link_libraries(tvm_demo_ios "-framework Foundation  -framework UIKit -framework tvm_model")
+
 	set_target_properties(tvm_demo_ios PROPERTIES
 	  LINK_FLAGS "-Wl,-F../tvm_model/build.ios/Debug-iphonesimulator"
+	  MACOSX_BUNDLE_GUI_IDENTIFIER "com.example.\${PRODUCT_NAME:identifier}"
 	)
    
 	install(TARGETS tvm_demo_ios DESTINATION tvm_demo_ios.app)
    ```
    为了编译 ios app,需要连接到 UIKit.framework:
    `   target_link_libraries(tvm_demo_ios "-framework UIKit")`
+
+   ### 添加 MACOSX_BUNDLE_GUI_IDENTIFIER 属性
+      上面的cmake文件，能编译通过，但不能被启动运行: Bundle id can't be determined。
+      参照参考11，添加 MACOSX_BUNDLE_GUI_IDENTIFIER  属性，才能在ios模拟器内，运行起来。
+      `  MACOSX_BUNDLE_GUI_IDENTIFIER "com.example.\${PRODUCT_NAME:identifier}")`
+
+   ### 复制 resource
+   把 data 目录，作为 resource, 打包进 app:
+   ```
+	# copy resource phase
+
+	set(APP_NAME \${TARGET_BUILD_DIR}/\${FULL_PRODUCT_NAME})
+	set(RES_DIR  ./data)
+	add_custom_command(
+	    TARGET tvm_demo_ios
+	    POST_BUILD
+	    COMMAND mkdir ${APP_NAME}/Resources/ && echo "." || echo "."
+	    COMMAND cp -Rf ../resources/*  ${APP_NAME}/Resources/
+	)   
+   ```
+   cmake把自定义脚本，生成在一个文件内，在xcode编译的时候，会调用这个文件：   
+   `tvm_demo_ios/build.ios/CMakeScripts/tvm_demo_ios_postBuildPhase.makeDebug`.
+   脚本运行的当前目录是:
+   `tvm_demo_ios/build.ios`.
 
 ## 参考
   - 参考1: [cmake 打包 ios sdk](https://github.com/Tencent/ncnn/wiki/cmake-%E6%89%93%E5%8C%85-ios-sdk?from=singlemessage)
@@ -256,3 +286,4 @@ int TVMModelC::run(int x){
   - 参考8: [CMake Build Configuration for iOS](https://github.com/sheldonth/ios-cmake)
   - 参考9： [CMake include_directories skips OS X frameworks](https://stackoverflow.com/questions/33332021/cmake-include-directories-skips-os-x-frameworks)
   - 参考10: [cmake ios app 跨平台编译的经验之谈－－Xcode之旅](https://www.jianshu.com/p/e4ece730de8e)
+  - 参考11: [How to set up CMake to build an app for the iPhone](https://stackoverflow.com/questions/822404/how-to-set-up-cmake-to-build-an-app-for-the-iphone)
