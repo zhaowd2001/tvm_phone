@@ -29,3 +29,7 @@ tvm arm gpu opencl
 
 2019.5.10
 [tvm: deploy on ios](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-ios-deploy.md)
+
+2019.5.10
+[PFLD android demo](https://github.com/zhaowd2001/tvm_phone/blob/master/pfld-android-demo.md)
+
