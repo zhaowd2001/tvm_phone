@@ -2,7 +2,9 @@
 
 [tvm android arm gpu opencl](https://github.com/zhaowd2001/tvm_phone/blob/master/tvm-android-demo.md)
 
-2019.4.29
+2019.4.29 第一版
+2019.5.16 增加armv7 c++源代码: TVMModelApi.java, tvm_model_api.cc
+
 ## 下载
    - 下载需要的用户名口令都是pub
    - tvm android demo apk 
@@ -12,6 +14,7 @@
 - tvm android demo 源代码: android studio
    [arm64](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy)
    [armv7](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy_2_armv7)
+   [armv7 c++](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy_3_log)
 
 - [tvm jar : tvm4j-core-0.0.1-SNAPSHOT.jar](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/libs/tvm4j-core-0.0.1-SNAPSHOT.jar)
 
