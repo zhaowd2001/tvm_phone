@@ -21,6 +21,7 @@ tvm: ios_deploy
 
 ## 代码准备
    把参考1内的代码，复制一份，改名成 ios_deploy2.
+
    把rpc相关代码删除，只保留app框架。
 
    
