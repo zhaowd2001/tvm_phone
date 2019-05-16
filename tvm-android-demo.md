@@ -8,13 +8,15 @@
 ## 下载
    - 下载需要的用户名口令都是pub
    - tvm android demo apk 
-   [arm64](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/build/outputs/apk/debug/app-debug.apk)
-   [armv7](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy_2_armv7/app/build/outputs/apk/debug/app-debug.apk)
+   [arm64 apk](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/build/outputs/apk/debug/app-debug.apk)
+   [armv7 apk](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy_2_armv7/app/build/outputs/apk/debug/app-debug.apk)
 
 - tvm android demo 源代码: android studio
-   [arm64](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy)
-   [armv7](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy_2_armv7)
-   [armv7 c++](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy_3_log)
+   [android_deploy arm64 工程](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy)
+   [android_deploy_2_armv7 armv7 工程](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy_2_armv7)
+   - [android_deploy_3_armv7_cpp armv7 c++ 工程](https://zwd.3wfocus.com/!/#files/view/head/trunk/tp/tvm/apps/android_deploy_3_armv7_cpp)
+   - [android_deploy_3_armv7_cpp armv7 c++ 源代码](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy_3_armv7_cpp/app/src/main/jni/tvm_model_api.cc)
+   - [android_deploy_3_armv7_cpp armv7 c++ 测试代码](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy_3_armv7_cpp/app/src/main/java/cn/TVMModelApi.java)
 
 - [tvm jar : tvm4j-core-0.0.1-SNAPSHOT.jar](https://zwd.3wfocus.com/svn/files/trunk/tp/tvm/apps/android_deploy/app/src/main/libs/tvm4j-core-0.0.1-SNAPSHOT.jar)
 
